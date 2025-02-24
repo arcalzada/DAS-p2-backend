@@ -27,6 +27,7 @@ class LoginView(APIView):
             return Response({
                 "refresh": str(refresh),
                 "access": str(refresh.access_token),
+                "username": str(username)
             })
         return Response({"error": "Invalid credentials"}, status=400)
 
