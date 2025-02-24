@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-t!l*t%u(l8%q1lbk3blb7wz+q8gj=o%qa42&pd8+r^x%9x9e03
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["dpg-cutesodds78s738v8lk0-a.oregon-postgres.render.com", "127.0.0.1", "das-p2-backend.onrender.com"]
+ALLOWED_HOSTS = ["dpg-cutesodds78s738v8lk0-a.oregon-postgres.render.com", "127.0.0.1", "das-p2-backend.onrender.com", "http://localhost:3000"]
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
     'users',
 ]
 
@@ -55,7 +56,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'p2Backend.urls'
 
